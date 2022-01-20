@@ -12,11 +12,11 @@ exports.config = {
 
   // Spec patterns are relative to the current working directory when
   // protractor is called.
-  specs: ['C:/Users/Anitha/Desktop/GlassLewis_Automation/testcases/web_disclosure.js'],
+  specs: ['..//testcases/web_disclosure.js'],
 
   // Options to be passed to Jasmine.
-  jasmineNodeOpts: {
-    defaultTimeoutInterval: 30000
-  }
+  // jasmineNodeOpts: {
+  //   defaultTimeoutInterval: 30000
+  // }
 };
  
