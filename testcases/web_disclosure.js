@@ -1,65 +1,44 @@
-// describe('Protractor Demo', function() {
-//    it('to check the page title', function() {
-//     browser.ignoreSynchronization = true;
-//     browser.get('https://viewpoint.glasslewis.com/WD/?siteId=DemoClient/');
-//     browser.wait(20000)
-//     browser.driver.getTitle().then(function(pageTitle) {
-//     expect(pageTitle).toEqual('Software Testing Help - A Must Visit Software Testing Portal');
-//     });
-//    });
-//     });
-
-
-// describe('angularjs homepage', function() {
-//     it('should greet the named user', function() {
-//       browser.get('https://viewpoint.glasslewis.com/WD/?siteId=DemoClient');
-  
-//       element(by.model('yourName')).sendKeys('Julie');
-  
-//       var greeting = element(by.binding('yourName'));
-  
-//       expect(greeting.getText()).toEqual('Hello Julie!');
-//     });
-// });
-
-// function myFunction() {
-//     window.open("https://www.w3schools.com");
-//   }
-
-// browser.waitForAngularEnabled(false)
-// describe('Demo App', function() {
-//     it(function() {
-//       browser.get('https://viewpoint.glasslewis.com/WD/?siteId=DemoClient');
-  
-//       //expect(browser.getTitle()).toEqual('Glass Lewis');
-//     });
-//   });
 browser.waitForAngularEnabled(false)
-describe('Protractor Demo App', function() {
-    it('should add one and two', function() {
-      browser.get('https://viewpoint.glasslewis.com/WD/?siteId=DemoClient');
-      browser.driver.manage().window().maximize();
-      //getPageTimeout: 120000; 
-      expect(browser.getTitle()).toEqual("Web Disclosure");
-     // var el = element(filterid-CountryFilter);
-    //   browser.actions()
-    // .mouseMove(el) 
-    // .click()
-    //anitha
-    // .perform();
-      browser.sleep(10000);
-      
-     // browser.manage().timeouts().implicitlyWait(20000);
-    //   browser.wait(20000);
-    //   var started = startTestServer();
-    //   browser.wait(started, 5 * 1000, 'Server should start within 5 seconds');
-      //browser.get(getServerUrl());
-    //   element(by.model('first')).sendKeys(1);
-    //   element(by.model('second')).sendKeys(2);
-  
-    //   element(by.id('gobutton')).click();
-  
-    //   expect(element(by.binding('latest')).getText()).
-    //       toEqual('5'); // This is wrong!
-    });
-  });
+
+describe('Interact with Inputs', () => {
+    it('Enter Country Name', async() => {
+        browser.get("https://viewpoint.glasslewis.com/WD/?siteId=DemoClient");
+        browser.driver.manage().window().maximize();
+        expect(browser.getTitle()).toEqual("Web Disclosure");
+
+        var EC = protractor.ExpectedConditions;
+        var e1 = element(by.id('txt-multiselect-static-search-CountryFilter'));
+        browser.wait(EC.visibilityOf(e1), 10000);
+        e1.sendKeys('Belgium');
+        
+        var e2 = element(by.xpath("/html/body/div[2]/div[2]/aside/div[4]/div/div[2]/fieldset/div/div/label"));
+        browser.wait(EC.visibilityOf(e2), 10000);
+        e2.click();
+
+        var e3 =element(by.xpath("/html/body/div[2]/div[2]/aside/div[4]/div/div[2]/div[2]/button[1]"));
+        browser.wait(EC.visibilityOf(e3), 10000);
+        await e3.click().then(() => {
+            browser.executeScript("document.body.style.zoom='70%'").then(() => {
+                console.log("ZOOM OUT SUCCESSFUL");
+            })
+        })
+        browser.sleep(4000);
+    })
+
+    it('Verify Country Name', async () => {
+        var EC = protractor.ExpectedConditions;
+        let table = element(by.css("table tbody"));   
+        let rows = table.$$("tr");
+        rows.count().then((count) => {
+            for(let i = 1; i<=count;i++){
+                var ele = element(by.css("tr:nth-child("+i+") td:nth-child(6)"));
+                browser.wait(EC.visibilityOf(ele), 10000);
+                expect(ele.getText()).toBe("Belgium").then(() => {
+                    //console.log("Belgium Success = "+i);
+                }).catch(() => {
+                    console.log("Belgium Unsuccessful = "+i);
+                })
+            }
+        });
+    })
+})
