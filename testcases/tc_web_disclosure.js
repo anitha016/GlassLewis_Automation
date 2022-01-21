@@ -1,4 +1,4 @@
-browser.waitForAngularEnabled(false)
+browser.waitForAngularEnabled(false) //For non-angular webpage
 
 describe('Interact with Inputs', () => {
     it('Enter Country Name', async() => {
@@ -14,11 +14,13 @@ describe('Interact with Inputs', () => {
         browser.wait(EC.visibilityOf(e1), 10000); 
         e1.sendKeys('Activision');
 
-        browser.sleep(10000);
+        browser.sleep(1000);
         browser.actions().sendKeys(protractor.Key.ENTER).perform();
         
         browser.sleep(15000);
-       // expect(element(by.id('detail-issuer-name')).getText()).toEqual('Activision Blizzard Inc');
+       expect(element(by.id('detail-issuer-name')).getText()).toEqual('Activision Blizzard Inc').then(()=> {
+           console.log("'Activision Blizzard Inc is Found");
+       });
 
        
     })
