@@ -22,5 +22,9 @@ The default .js file will run.
   - `\node_modules\protractor\example`
 - Create another folder in Visual Studio for test cases and create two .js files for the two given scenarios.
 - Copy and paste the code. And specify the file you want to run in specs[] in conf.js file under conf folder
-- Move to a conf folder and run “Protractor conf.js”
+- Navigate to conf folder and run “Protractor conf.js”
 - The scripts will run in a browser.
+
+## Errors
+- If you get an error `Failed: EACCES connect EACCES 127.0.0.1:56068` Please re-run the test cases using `Protractor conf.js`.
+- If you get an error `Failed: Wait timed out after 10008ms` Please re-run the test cases using `Protractor conf.js`.
