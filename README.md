@@ -16,11 +16,11 @@ Instructions to Setup Protractor on Windows:
                On command, move to the location of this file and run protractor conf.js.
 The default .js file will run.
  
-*To run my test case:
-•                Create a new project in Visual Studio and create a new folder called conf.
-•                Copy conf.js file from the below location and paste it in your conf folder.
-                 \node_modules\protractor\example
-•                Create another folder in Visual Studio for test cases and create two .js files for the two given scenarios.
-•                Copy and paste the code. And specify the file you want to run in specs[] in conf.js file under conf folder
-•                Move to a conf folder and run “Protractor conf.js”
-•                The scripts will run in a browser.
+To run my test case:
+- Create a new project in Visual Studio and create a new folder called conf.
+- Copy conf.js file from the below location and paste it in your conf folder.
+                 ``\node_modules\protractor\example
+- Create another folder in Visual Studio for test cases and create two .js files for the two given scenarios.
+- Copy and paste the code. And specify the file you want to run in specs[] in conf.js file under conf folder
+- Move to a conf folder and run “Protractor conf.js”
+- The scripts will run in a browser.
