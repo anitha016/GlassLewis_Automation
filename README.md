@@ -1,7 +1,7 @@
-# GlassLewis_Automation #
+# GlassLewis Automation Project 
 
-Instructions to Setup Protractor on Windows:
-- Step 1: Download and install node.js
+## Instructions on how to Setup Protractor on Windows:
+- Step 1: Download and install node.js. Open console and use the below commands
   -  `node -v`
   -  `npm -v`
 - Step 2: Use npm to install Protractor globally with:
@@ -16,7 +16,7 @@ Instructions to Setup Protractor on Windows:
 - On command, move to the location of this file and run protractor conf.js.
 The default .js file will run.
  
-To run my test case:
+## To run my test case:
 - Create a new project in Visual Studio and create a new folder called conf.
 - Copy conf.js file from the below location and paste it in your conf folder.
   - `\node_modules\protractor\example`
