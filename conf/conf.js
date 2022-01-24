@@ -14,7 +14,7 @@ exports.config = {
   // protractor is called.
   specs: ['..//testcases/country_web_disclosure.js',
           '..//testcases/company_web_disclosure.js' ],
-
+          
   // Options to be passed to Jasmine.
   // jasmineNodeOpts: {
   //   defaultTimeoutInterval: 30000
